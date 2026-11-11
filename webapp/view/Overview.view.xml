@@ -1,0 +1,96 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core"
+  xmlns="sap.m"
+  controllerName="com.training.sprintboard.controller.Overview"
+  displayBlock="true">
+  <Page id="overviewPage" title="{i18n>appTitle}" class="sbPage">
+    <headerContent>
+      <Button icon="sap-icon://add" text="{i18n>newTask}" type="Emphasized" press=".onOpenCreate" tooltip="{i18n>newTask}" />
+    </headerContent>
+    <content>
+      <VBox class="sapUiResponsiveContentPadding" width="100%">
+        <VBox class="sbHero">
+          <Title text="{i18n>welcomeTitle}" level="H2" />
+          <Text text="{i18n>welcomeDescription}" class="sbMuted sapUiTinyMarginTop" />
+          <HBox wrap="Wrap" class="sapUiSmallMarginTop" renderType="Bare">
+            <VBox class="sbKpi">
+              <Text text="{ui>/counts/total}" class="sbKpiNumber" />
+              <Text text="{i18n>totalTasks}" class="sbMuted" />
+            </VBox>
+            <VBox class="sbKpi">
+              <Text text="{ui>/counts/open}" class="sbKpiNumber" />
+              <Text text="{i18n>activeTasks}" class="sbMuted" />
+            </VBox>
+            <VBox class="sbKpi">
+              <Text text="{ui>/counts/done}" class="sbKpiNumber" />
+              <Text text="{i18n>doneTasks}" class="sbMuted" />
+            </VBox>
+          </HBox>
+        </VBox>
+        <Panel expandable="false" class="sapUiNoContentPadding">
+          <headerToolbar>
+            <OverflowToolbar>
+              <Title text="{i18n>taskListTitle}" level="H3" />
+              <ToolbarSpacer />
+              <Button icon="sap-icon://add" text="{i18n>newTask}" type="Emphasized" press=".onOpenCreate" />
+            </OverflowToolbar>
+          </headerToolbar>
+          <content>
+            <VBox>
+              <OverflowToolbar>
+                <SearchField id="searchInput" width="15rem" value="{ui>/search}" liveChange=".onSearch" search=".onSearch" placeholder="{i18n>searchPlaceholder}" />
+                <ToolbarSeparator />
+                <Label text="{i18n>status}" labelFor="statusFilter" />
+                <Select id="statusFilter" width="10rem" selectedKey="{ui>/status}" change=".onFilterChange" tooltip="{i18n>filterStatus}">
+                  <items>
+                    <core:Item key="All" text="{i18n>allStatuses}" />
+                    <core:Item key="Open" text="{i18n>openStatus}" />
+                    <core:Item key="In Progress" text="{i18n>inProgressStatus}" />
+                    <core:Item key="Done" text="{i18n>doneStatus}" />
+                  </items>
+                </Select>
+                <Label text="{i18n>category}" labelFor="categoryFilter" />
+                <Select id="categoryFilter" width="10rem" selectedKey="{ui>/category}" change=".onFilterChange" tooltip="{i18n>filterCategory}">
+                  <items>
+                    <core:Item key="All" text="{i18n>allCategories}" />
+                    <core:Item key="Learning" text="{i18n>learning}" />
+                    <core:Item key="Planning" text="{i18n>planning}" />
+                    <core:Item key="Onboarding" text="{i18n>onboarding}" />
+                  </items>
+                </Select>
+                <ToolbarSpacer />
+                <ToggleButton icon="sap-icon://group-2" text="{i18n>groupCategory}" pressed="{ui>/groupByCategory}" press=".onToggleGroup" tooltip="{i18n>groupCategory}" />
+                <Button icon="sap-icon://sort" text="{i18n>sortDueDate}" press=".onSortDate" tooltip="{i18n>sortDueDate}" />
+                <Button icon="sap-icon://reset" text="{i18n>reset}" press=".onResetFilters" tooltip="{i18n>reset}" />
+              </OverflowToolbar>
+              <Table id="taskTable" items="{tasks>/tasks}" growing="true" growingThreshold="25"
+                noDataText="{i18n>noTasks}" mode="None" alternateRowColors="true" width="100%">
+                <columns>
+                  <Column width="18rem"><Text text="{i18n>title}" /></Column>
+                  <Column minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>category}" /></Column>
+                  <Column minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>priority}" /></Column>
+                  <Column minScreenWidth="Desktop" demandPopin="true"><Text text="{i18n>status}" /></Column>
+                  <Column minScreenWidth="Tablet" demandPopin="true"><Text text="{i18n>dueDate}" /></Column>
+                  <Column width="3rem" hAlign="Center"><Text text="{i18n>favorite}" /></Column>
+                </columns>
+                <items>
+                  <ColumnListItem type="Navigation" press=".onOpenTask" vAlign="Middle">
+                    <cells>
+                      <ObjectIdentifier title="{tasks>title}" text="{tasks>id}" titleActive="false" />
+                      <Text text="{tasks>category}" />
+                      <ObjectStatus text="{tasks>priority}" state="{path:'tasks>priority',formatter:'.formatter.priorityState'}" />
+                      <ObjectStatus text="{tasks>status}" state="{path:'tasks>status',formatter:'.formatter.statusState'}" />
+                      <Text text="{path:'tasks>dueDate',formatter:'.formatter.formatDueDate'}" />
+                      <core:Icon src="sap-icon://favorite" visible="{= ${tasks>favorite} === true }" tooltip="{i18n>favorite}" decorative="false" />
+                    </cells>
+                  </ColumnListItem>
+                </items>
+              </Table>
+            </VBox>
+          </content>
+        </Panel>
+      </VBox>
+    </content>
+  </Page>
+</mvc:View>

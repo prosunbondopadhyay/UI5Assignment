@@ -1,0 +1,22 @@
+/* Only lightweight, theme-aware CSS. Layout remains primarily sap.m + UI5 classes. */
+.sbHero {
+  background: var(--sapTile_Background, #ffffff);
+  border: 1px solid var(--sapGroup_ContentBorderColor, #dddddd);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.sbKpi {
+  min-width: 8rem;
+  padding: 0.5rem 1rem;
+  border-left: 0.2rem solid var(--sapHighlightColor, #0070f2);
+}
+.sbKpiNumber { font-size: 1.65rem; font-weight: 700; }
+.sbMuted { color: var(--sapContent_LabelColor, #6a6d70); }
+.sbDetailCard {
+  background: var(--sapTile_Background, #ffffff);
+  border-radius: 0.75rem;
+  padding: 1.2rem;
+}
+.sbDialogBody { padding: 1rem; }
+@media (max-width: 600px) { .sbKpi { min-width: 5.8rem; padding: 0.5rem; } }

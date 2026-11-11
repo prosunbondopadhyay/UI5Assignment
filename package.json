@@ -1,0 +1,18 @@
+{
+  "name": "sprintboard-lite-sapui5",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fresher SAPUI5 Walkthrough hands-on solution: SprintBoard Lite",
+  "scripts": {
+    "start": "ui5 serve --port 8080 --open index.html",
+    "serve": "ui5 serve --port 8080",
+    "build": "ui5 build --all --clean-dest",
+    "verify": "node scripts/verify.mjs"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

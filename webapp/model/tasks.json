@@ -1,0 +1,124 @@
+{
+  "tasks": [
+    {
+      "id": "T-101",
+      "title": "Explore the SAPUI5 Demo Kit",
+      "category": "Learning",
+      "priority": "High",
+      "status": "Open",
+      "dueDate": "2026-11-12",
+      "description": "Browse common controls and identify their API references.",
+      "favorite": true
+    },
+    {
+      "id": "T-102",
+      "title": "Set up Business Application Studio",
+      "category": "Onboarding",
+      "priority": "Medium",
+      "status": "In Progress",
+      "dueDate": "2026-11-13",
+      "description": "Check the development space and the basic terminal setup.",
+      "favorite": false
+    },
+    {
+      "id": "T-103",
+      "title": "Sketch task manager screens",
+      "category": "Planning",
+      "priority": "Low",
+      "status": "Done",
+      "dueDate": "2026-11-11",
+      "description": "Create a rough overview and details screen outline.",
+      "favorite": false
+    },
+    {
+      "id": "T-104",
+      "title": "Practice XML views and controls",
+      "category": "Learning",
+      "priority": "High",
+      "status": "In Progress",
+      "dueDate": "2026-11-14",
+      "description": "Add a page, label, button and input using XML views.",
+      "favorite": true
+    },
+    {
+      "id": "T-105",
+      "title": "Read project coding conventions",
+      "category": "Onboarding",
+      "priority": "Low",
+      "status": "Open",
+      "dueDate": "2026-11-18",
+      "description": "Understand naming conventions for UI5 JavaScript files.",
+      "favorite": false
+    },
+    {
+      "id": "T-106",
+      "title": "Plan weekly team check-in",
+      "category": "Planning",
+      "priority": "Medium",
+      "status": "Open",
+      "dueDate": "2026-11-16",
+      "description": "Prepare a short agenda for the project discussion.",
+      "favorite": false
+    },
+    {
+      "id": "T-107",
+      "title": "Understand JSONModel binding",
+      "category": "Learning",
+      "priority": "High",
+      "status": "Done",
+      "dueDate": "2026-11-09",
+      "description": "Try property and aggregation binding examples.",
+      "favorite": true
+    },
+    {
+      "id": "T-108",
+      "title": "Complete environment checklist",
+      "category": "Onboarding",
+      "priority": "Medium",
+      "status": "Done",
+      "dueDate": "2026-11-10",
+      "description": "Verify node, npm, git and editor are available.",
+      "favorite": false
+    },
+    {
+      "id": "T-109",
+      "title": "Review the navigation flow",
+      "category": "Planning",
+      "priority": "Low",
+      "status": "In Progress",
+      "dueDate": "2026-11-20",
+      "description": "Confirm Overview to Details routing and back navigation.",
+      "favorite": false
+    },
+    {
+      "id": "T-110",
+      "title": "Learn formatter functions",
+      "category": "Learning",
+      "priority": "Medium",
+      "status": "Open",
+      "dueDate": "2026-11-21",
+      "description": "Write functions for semantic states and readable dates.",
+      "favorite": false
+    },
+    {
+      "id": "T-111",
+      "title": "Prepare demo agenda",
+      "category": "Planning",
+      "priority": "High",
+      "status": "Open",
+      "dueDate": "2026-11-25",
+      "description": "List user actions to show during the five-minute demo.",
+      "favorite": true
+    },
+    {
+      "id": "T-112",
+      "title": "Check responsive layout on phone",
+      "category": "Onboarding",
+      "priority": "Low",
+      "status": "In Progress",
+      "dueDate": "2026-11-27",
+      "description": "Use device emulation to inspect pop-in columns and buttons.",
+      "favorite": false
+    }
+  ]
+}

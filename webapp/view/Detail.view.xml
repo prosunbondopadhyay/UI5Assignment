@@ -1,0 +1,47 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  controllerName="com.training.sprintboard.controller.Detail"
+  displayBlock="true">
+  <Page id="detailsPage" title="{i18n>detailsTitle}" showNavButton="true" navButtonPress=".onNavBack">
+    <content>
+      <VBox class="sapUiResponsiveContentPadding" width="100%">
+        <VBox visible="{detail>/found}" class="sbDetailCard">
+          <ObjectHeader title="{detail>/task/title}" intro="{detail>/task/id}"
+            icon="sap-icon://task" iconDensityAware="false" responsive="true">
+            <statuses>
+              <ObjectStatus text="{detail>/task/priority}" state="{path:'detail>/task/priority',formatter:'.formatter.priorityState'}" />
+              <ObjectStatus text="{detail>/task/status}" state="{path:'detail>/task/status',formatter:'.formatter.statusState'}" />
+            </statuses>
+            <attributes>
+              <ObjectAttribute title="{i18n>category}" text="{detail>/task/category}" />
+              <ObjectAttribute title="{i18n>dueDate}" text="{path:'detail>/task/dueDate',formatter:'.formatter.formatDueDate'}" />
+            </attributes>
+          </ObjectHeader>
+          <HBox alignItems="Center" class="sapUiMediumMarginTop">
+            <core:Icon src="sap-icon://favorite" visible="{= ${detail>/task/favorite} === true }" color="Critical" size="1.25rem" tooltip="{i18n>favorite}" decorative="false" />
+            <Text text="{i18n>taskInformation}" class="sapUiTinyMarginBegin" />
+          </HBox>
+          <Panel headerText="{i18n>description}" class="sapUiSmallMarginTop" expandable="false">
+            <Text text="{detail>/task/description}" wrapping="true" />
+          </Panel>
+          <MessageStrip class="sapUiMediumMarginTop" text="{i18n>localDataHint}" showIcon="true" type="Information" />
+        </VBox>
+        <VBox visible="{= !${detail>/found} }" alignItems="Center" class="sapUiLargeMarginTop">
+          <core:Icon src="sap-icon://alert" size="2rem" color="Negative" />
+          <Title text="{i18n>taskNotFound}" level="H3" class="sapUiMediumMarginTop" />
+          <Button text="{i18n>backToOverview}" press=".onNavBack" icon="sap-icon://nav-back" class="sapUiSmallMarginTop" />
+        </VBox>
+      </VBox>
+    </content>
+    <footer>
+      <OverflowToolbar visible="{detail>/found}">
+        <ToolbarSpacer />
+        <Button icon="sap-icon://edit" text="{i18n>editTask}" press=".onEditTask" />
+        <Button icon="sap-icon://accept" text="{i18n>markDone}" type="Accept" press=".onMarkDone" enabled="{= ${detail>/task/status} !== 'Done' }" />
+        <Button icon="sap-icon://delete" text="{i18n>deleteTask}" type="Reject" press=".onDeleteTask" />
+      </OverflowToolbar>
+    </footer>
+  </Page>
+</mvc:View>

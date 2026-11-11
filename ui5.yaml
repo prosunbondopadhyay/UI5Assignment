@@ -1,0 +1,11 @@
+specVersion: "4.0"
+metadata:
+  name: com.training.sprintboard
+type: application
+framework:
+  name: SAPUI5
+  version: "1.136.0"
+  libraries:
+    - name: sap.ui.core
+    - name: sap.m
+    - name: themelib_sap_horizon
